@@ -3,10 +3,9 @@ R Software for Regularized Block Tensor Train Decomposition for Missing Data Est
 
 The Authors are preparing R scripts for simulations and real data experiments.
 
-References:
+Reference:
 
-  N. Lee and J.-M. Kim. Regularized block tensor train decomposition for missing data estimation. Submitted to Statistical Papers, 2018. 
-  
+N. Lee and J.-M. Kim. Regularized block tensor train decomposition for missing data estimation. Submitted to Statistical Papers, 2018. 
 
 < Regularized Block Tensor Train Decomposition >
 
