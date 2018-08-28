@@ -1,0 +1,49 @@
+-------------------
+Abbreviated Terms: 
+
+
+
+BlockTT : block-b TT tensor format, where
+
+	b = 1,2,...,N, representing [prod(J) x K] matrix.
+
+	$block = b
+  
+	$N  : tensor order
+
+	$J = [J(1), J(2), ..., J(N)]
+	
+	$K
+
+	$R = [R(1), R(2), ..., R(N+1)]
+
+	$G[[1]], ..., $G[[N]]	: core tensors, 
+	
+	      G[[b]] is of 4th order, others are of 3rd order.
+
+
+LR : Low-rank (SVD) format. 
+
+    It represents an N+1 order tensor X, whose 
+    
+    mode-1 unfolding is written by
+    
+      X_{(1)} = u %*% diag(d) %*% v^T, 
+
+
+	$u : [M x K] matrix 
+
+	$d : length K vector
+
+	$v : block-b TT tensor 
+
+
+SparseMatrix format
+
+	$i : vector
+	$j : vector or matrix
+	$v : vector
+	$nrow : scalar
+	$ncol : vector
+	$dimnames
+
