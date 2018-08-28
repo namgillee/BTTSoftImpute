@@ -3,7 +3,6 @@ R Software for Regularized Block Tensor Train Decomposition for Missing Data Est
 
 The Authors are updating R scripts for simulations and real data experiments.
 
-Reference:
 
 
 
