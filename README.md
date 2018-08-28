@@ -5,7 +5,7 @@ The Authors are updating R scripts for simulations and real data experiments.
 
 Reference:
 
-N. Lee and J.-M. Kim. Regularized block tensor train decomposition for missing data estimation. Submitted to Statistical Papers, 2018. 
+
 
 < Regularized Block Tensor Train Decomposition >
 
