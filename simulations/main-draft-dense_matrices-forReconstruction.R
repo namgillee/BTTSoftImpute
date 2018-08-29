@@ -141,21 +141,6 @@ for (ido in 1:length(ORDERS))
        Zbres[m,1+sum((j-1)*CumSize)] = Zbres[m,1+sum((j-1)*CumSize)] - Yres$v[idnz]
       }# (Y0 - R_omega)
       error_btt[idrep,2,ido] = sqrt(sum(Zbres^2)) / sqrt(sum(Y0orth^2))
-
-      
-      # obj = 0.5 * sum(Yres$v^2) + lambda * sum(Z_btt_als$d)
-      # cost_btt[idrep,idj,idrate,ido] = obj
-      
-      # #****
-      # if (sizeI * sizeJ^orderN > 1e7) {     
-      #   print("****Too Large Size To Compute Full Matrix/Tensor*****")
-      # } else {
-      #   Y0orth = Y0$u %*% diag(Y0$d) %*% t(bttFull(Y0$v))  #Full. Computed once
-      #   Zbres = Z_btt_als$u %*% diag(Z_btt_als$d) %*% t(bttFull(Z_btt_als$v))
-      #   Zbres = Zbres - Y0orth  #Residual
-      # }
-      # #****
-      
       
       
       ## 2) Using standard thresholded SVD
@@ -205,16 +190,21 @@ save(file = paste('resu_main-draft-dense_matrices-forReconstruction.Rdata' , sep
 
 
 ## A summary table
-resu_table = matrix(0,4,4)
+dif_error <- error_btt - error_mat
+resu_table = matrix(0,6,4)
 rownames(resu_table) <- c('N.2..BTT', 
-                          'N.2..Matrix', 
+                          'N.2..Matrix',
+                          'N.2..D(BTT.Matrix)',
                           'N.3..BTT', 
-                          'N.3..Matrix')
+                          'N.3..Matrix',
+                          'N.3..D(BTT.Matrix)')
 colnames(resu_table) <- c('Training.Error.Mean','Training.Error.SD','Test.Error.Mean','Test.Error.SD')
 
 resu_table[1,] <- c( mean(error_btt[,1,1]) , sd(error_btt[,1,1]) , mean(error_btt[,2,1]) , sd(error_btt[,2,1]) )
 resu_table[2,] <- c( mean(error_mat[,1,1]) , sd(error_mat[,1,1]) , mean(error_mat[,2,1]) , sd(error_mat[,2,1]) )
-resu_table[3,] <- c( mean(error_btt[,1,2]) , sd(error_btt[,1,2]) , mean(error_btt[,2,2]) , sd(error_btt[,2,2]) )
-resu_table[4,] <- c( mean(error_mat[,1,1]) , sd(error_mat[,1,1]) , mean(error_mat[,2,1]) , sd(error_mat[,2,1]) )
+resu_table[3,] <- c( mean(dif_error[,1,1]) , sd(dif_error[,1,1]) , mean(dif_error[,2,1]) , sd(dif_error[,2,1]) )
+resu_table[4,] <- c( mean(error_btt[,1,2]) , sd(error_btt[,1,2]) , mean(error_btt[,2,2]) , sd(error_btt[,2,2]) )
+resu_table[5,] <- c( mean(error_mat[,1,2]) , sd(error_mat[,1,2]) , mean(error_mat[,2,2]) , sd(error_mat[,2,2]) )
+resu_table[6,] <- c( mean(dif_error[,1,2]) , sd(dif_error[,1,2]) , mean(dif_error[,2,2]) , sd(dif_error[,2,2]) )
 
 print(round(resu_table,5))
