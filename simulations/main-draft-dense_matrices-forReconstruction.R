@@ -16,6 +16,9 @@
 #     For BTT matrix V, 
 #     - use low-order (small N), small-to-large sizes (size J_1,..., J_N)
 #
+#### NOTE: This simulation code can take a long time to run through. 
+####    So please adjust experimental parameters in the biginning of the file. 
+#
 # Last modified at 2018.08.29. by Namgil Lee (Kangwon National University)
 #
 # < Regularized Block Tensor Train Decomposition >
