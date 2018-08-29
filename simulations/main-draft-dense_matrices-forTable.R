@@ -231,7 +231,7 @@ for (ido in 1:length(ORDERS)) {
   }#end for sizeJ
   
   ## Save the results
-  save(file = paste('dense_main_02_lowORDER_lowOBSRATE_TTRY', ttrankY, '.Rdata' , sep=''), 
+  save(file = paste('resu_main-dense_matrices-forTable.Rdata' , sep=''), 
        time_btt, cost_btt, time_mat, cost_mat, 
        mae_btt,mae_mat,
        rmae_btt,rmae_mat,
@@ -250,14 +250,29 @@ for (ido in 1:length(ORDERS)) {
 idrate=6; ido=2; print( summary(rrmse_btt[,,idrate,ido] - rrmse_mat[,,idrate,ido]) )
 
 
-## Code for saving results were moved inside the loop ##
-# save(file = paste('dense_matrices/dense_main_01_I',sizeI,'_J',sizeJ,'_RY', rankRY, '_TTRY', ttrankY, '.Rdata' , sep=''), 
-#      time_btt, cost_btt, time_mat, cost_mat, 
-#      mae_btt,mae_mat,
-#      rmae_btt,rmae_mat,
-#      rmae2_btt,rmae2_mat,
-#      rmse_btt,rmse_mat,
-#      rrmse_btt,rrmse_mat,
-#      rrmse2_btt,rrmse2_mat
-#      )
+## Draw boxplots
+idrate=6; ido=2; 
+if (idrate>=3 && ido==3) {
+  ## For high-order, tensor is large, so,
+  ## select a subset of three sizes; Jn=(4,8,12)
+  dif_rrmse2 = dif_rrmse[,1:3,,] 
+  SIZEJS2 = SIZEJS[1:3]
+  
+} else {
+  ## For lower-order, remove 
+  ## one of the box for simplicity
+  dif_rrmse2 = dif_rrmse[,2:5,,]
+  SIZEJS2 = SIZEJS[2:5]
+}  
+mybox = boxplot(dif_rrmse2[,,idrate,ido])
+#pdf(paste0(outdir,'/boxplot_Drrmse_rate', 10*OBSRATE[idrate],'_N',ORDERS[ido],'.pdf')) 
+#{
+ymax = max(abs(c(mybox$stats[1,], mybox$stats[5,])))
+boxplot(dif_rrmse2[,,idrate,ido], ylim = c(-ymax,ymax),
+        names = SIZEJS2, cex.axis=2,
+        xlab = expression('J'[n]), cex.lab=2, 
+        ylab = expression(paste(Delta,'RRMSE')))
+abline(h=0,col='red',lty=3,lwd=2)
+#}
+#dev.off()
 
