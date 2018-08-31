@@ -22,7 +22,7 @@ bttSparseSVD_ALS <- function(Afill, ttrank_max,
   #
   #Last modified: 2017.08.25. by Namgil Lee (Kangwon National University)
   #
-  # < Regularized Block Tensor Train Decomposition >
+  # < BTT for Missing Data Estimation >
   # Copyright (C) 2018 Namgil Lee
   #
   ##################################################################################
