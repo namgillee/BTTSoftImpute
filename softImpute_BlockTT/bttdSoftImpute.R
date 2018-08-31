@@ -15,7 +15,7 @@ bttdSoftImpute <- function(Y, lambda = 0, rank_Y = 2, ttrank_max = 100,
   #
   #Last modified: 2018.01.15. by Namgil Lee (Kangwon National University)
   #
-  # < Regularized Block Tensor Train Decomposition >
+  # < BTT for Missing Data Estimation >
   # Copyright (C) 2018 Namgil Lee
   #
   ##################################################################################
