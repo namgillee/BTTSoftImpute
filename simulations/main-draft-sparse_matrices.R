@@ -5,7 +5,7 @@
 #
 # Last modified at 2018.08.28. by Namgil Lee (Kangwon National University)
 #
-# < Regularized Block Tensor Train Decomposition >
+# < BTT for Missing Data Estimation >
 # Copyright (C) 2018  Namgil Lee
 
 rm(list=ls())
