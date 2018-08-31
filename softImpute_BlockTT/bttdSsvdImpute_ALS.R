@@ -18,7 +18,7 @@ bttdSsvdImpute_ALS <- function(Y, lambda, ttrank_max, tol_dx=-1, tol_df=-1, tol_
   #
   #Last modified: 2018.1.15. by Namgil Lee (Kangwon National University)
   #
-  # < Regularized Block Tensor Train Decomposition >
+  # < BTT for Missing Data Estimation >
   # Copyright (C) 2018 Namgil Lee
   #
   ##################################################################################
