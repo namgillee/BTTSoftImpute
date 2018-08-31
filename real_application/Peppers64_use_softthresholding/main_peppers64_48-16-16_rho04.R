@@ -3,7 +3,7 @@
 #
 # Last modified at 2018.08.30. by Namgil Lee (Kangwon National University)
 #
-# < BTT for Missing Data >
+# < BTT for Missing Data Estimation >
 # Copyright (C) 2018  Namgil Lee
 
 
