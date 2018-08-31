@@ -6,6 +6,6 @@ The Authors are updating R scripts for simulations and real data experiments.
 
 
 
-< Regularized Block Tensor Train Decomposition >
+< BTT for Missing Data Estimation >
 
 Copyright (C) 2018 Namgil Lee
