@@ -1,5 +1,5 @@
 # BTTSoftImpute
-R Software for Regularized Block Tensor Train Decomposition for Missing Data Estimation
+R Software for Block Tensor Train Decomposition for Missing Data Estimation
 
 The Authors are updating R scripts for simulations and real data experiments.
 
