@@ -5,4 +5,4 @@ R scripts for simulations and real data experiments are provided.
 
 < BTT for Missing Data Estimation >
 
-Copyright (C) 2018 Namgil Lee
+Copyright (C) 2018 Namgil Lee & Jong-Min Kim
