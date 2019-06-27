@@ -10,7 +10,9 @@ select_observed_from_LR(x, numobs = NULL, rate = 1)
 \item{x}{A data matrix in LR (Low-rank (SVD)) format with attributes $u, $d, $v.
 $u is a matrix, x$v is a blockTT format.}
 
-\item{numobs}{if numobs==NULL, then numobs = rate * numels(full(x)).}
+\item{numobs}{Number of observed values to select.}
+
+\item{rate}{If numobs==NULL, then numobs = rate * numels(full(x)).}
 }
 \value{
 The returned value is a SparseMatrix format, with

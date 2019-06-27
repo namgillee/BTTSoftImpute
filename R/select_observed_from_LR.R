@@ -5,8 +5,8 @@
 #'
 #' @param x A data matrix in LR (Low-rank (SVD)) format with attributes $u, $d, $v.
 #'          $u is a matrix, x$v is a blockTT format.
-#' @param numobs if numobs==NULL, then numobs = rate * numels(full(x)).
-#' @param rate
+#' @param numobs Number of observed values to select.
+#' @param rate If numobs==NULL, then numobs = rate * numels(full(x)).
 #' @return The returned value is a SparseMatrix format, with
 #'         attributes $i, $j, $v, $nrow, $ncol, $dimnames.
 #' @export
