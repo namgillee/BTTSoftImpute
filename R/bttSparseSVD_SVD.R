@@ -14,7 +14,6 @@
 #' @param lambda parameter for soft-thresholding
 #'
 #' @return X: LR format
-#' @export
 
 bttSparseSVD_SVD <- function(Afill, ttrank_max,
                              tol_u, lambda, maxit, verbose,

@@ -3,7 +3,6 @@
 export(bttDot)
 export(bttFull)
 export(bttRand)
-export(bttSparseSVD_SVD)
 export(bttdSoftImpute)
 export(lrRatio)
 export(reduce_to_sparse_matrix)
