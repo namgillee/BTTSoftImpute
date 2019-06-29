@@ -1,4 +1,3 @@
-#' @export
 sp_times_bttframe <- function(spA, V, dir_rem = 0)
 {
   # Computes the matrix product  A %*% V_{\neq}
