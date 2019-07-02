@@ -1,6 +1,6 @@
-#' BTTSoftImpute
+#' bttdSoftImpute
 #'
-#' BTTSoftImpute implements block tensor train decomposition for
+#' bttdSoftImpute implements block tensor train decomposition for
 #' missing data estimation. It extends the SoftImpute method
 #' for matrix data imputation to higher-order tensor data.
 #'
@@ -151,68 +151,21 @@ bttdSoftImpute <- function(Y, lambda = 0, rank_Y = 2, ttrank_max = 100,
     ALS = bttdSsvdImpute_ALS(Y=Y, lambda=lambda, ttrank_max=ttrank_max,
                              tol_dx=tol_dx, tol_df=tol_df, tol_f=tol_f,
                              maxit=maxit, verbose=verbose, X0=X),
-    ALS_V01 = bttdSsvdImpute_ALS_v01(Y=Y, lambda=lambda, ttrank_max=ttrank_max,
-                                     tol_dx=tol_dx, tol_df=tol_df, tol_f=tol_f,
-                                     maxit=maxit, verbose=verbose, X0=X), ##tol_df not yet implemnetd
-    SVD = bttdSsvdImpute_SVD(Y=Y, lambda=lambda, ttrank_max=ttrank_max,
-                             tol_dx=tol_dx, tol_df=tol_df, tol_f=tol_f,
-                             maxit=maxit, verbose=verbose, X0=X),
-    MALS = bttdSsvdImpute_MALS(Y=Y, lambda=lambda, ttrank_max=ttrank_max,
-                               tol_dx=tol_dx, tol_df=tol_df, tol_f=tol_f,
-                               maxit=maxit, verbose=verbose, X0=X),
+    ##==THE METHODS BELOW WERE NOT IMPLEMENTED YET==##
+    #ALS_V01 = bttdSsvdImpute_ALS_v01(Y=Y, lambda=lambda, ttrank_max=ttrank_max,
+    #                                 tol_dx=tol_dx, tol_df=tol_df, tol_f=tol_f,
+    #                                 maxit=maxit, verbose=verbose, X0=X), ##tol_df not yet implemnetd
+    #SVD = bttdSsvdImpute_SVD(Y=Y, lambda=lambda, ttrank_max=ttrank_max,
+    #                         tol_dx=tol_dx, tol_df=tol_df, tol_f=tol_f,
+    #                         maxit=maxit, verbose=verbose, X0=X),
+    #MALS = bttdSsvdImpute_MALS(Y=Y, lambda=lambda, ttrank_max=ttrank_max,
+    #                           tol_dx=tol_dx, tol_df=tol_df, tol_f=tol_f,
+    #                           maxit=maxit, verbose=verbose, X0=X),
+    ##==============================================##
     {
       print(paste('Unknown method:', method))
     }
   )
-
-  #-------------------------------------------------
-  # # OLD -- Iteration
-  # Ares = sp_minus_lr_btt(Y, X)
-  # obj_trace = 0.5 * sum(Ares$v^2) + lambda * sum(X$d)
-  # ratio <- 1
-  # iter <- 0
-  # while ((ratio > tol_dx) & (iter < maxit)) {
-  #   iter <- iter + 1
-  #   X_old = X
-  #
-  #   # ALS routine for computing
-  #   # SVD of Afilled == { Ares + X }
-  #   Afill = list(Ares=Ares, X=X)
-  #
-  #   if (toupper(method) == 'ALS') {
-  #     X = bttSparseSVD_ALS(Afill, ttrank_max, tol_dx, lambda, maxit,
-  #                        verbose = FALSE, X0 = X)
-  #
-  #   } else if (toupper(method) == 'SVD') {
-  #     X = bttSparseSVD_SVD(Afill, ttrank_max, tol_dx, lambda, maxit,
-  #                           verbose = FALSE, X0 = X)
-  #
-  #   } else if (toupper(method) == 'MALS') {
-  #     X = bttSparseSVD_MALS(Afill, ttrank_max, tol_dx, lambda, maxit,
-  #                           verbose = FALSE, X0 = X)
-  #
-  #   } else {
-  #     warning('Unknown method')
-  #   }
-  #
-  #   # Ares = A_omega - X_omega
-  #   Ares = sp_minus_lr_btt(Y, X)
-  #
-  #   # Convergence trace and stopping
-  #   #
-  #   ratio = lrRatio(X_old$u, X_old$d, X_old$v, X$u, X$d, X$v)
-  #
-  #   # Convergence trace
-  #   obj = 0.5 * sum(Ares$v^2) + lambda * sum(X$d)
-  #   obj_trace = c(obj_trace, obj)
-  #   if (verbose) {
-  #
-  #     cat(iter, ":", "obj", format(round(obj, 5)), "ratio",
-  #         ratio, "\n")
-  #   }
-  #
-  # }
-  #---------------------------------------------
 
   #---------------------------------------------
   # Output results

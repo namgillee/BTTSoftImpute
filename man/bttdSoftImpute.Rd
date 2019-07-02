@@ -2,7 +2,7 @@
 % Please edit documentation in R/bttdSoftImpute.R
 \name{bttdSoftImpute}
 \alias{bttdSoftImpute}
-\title{BTTSoftImpute}
+\title{bttdSoftImpute}
 \usage{
 bttdSoftImpute(Y, lambda = 0, rank_Y = 2, ttrank_max = 100,
   tol_dx = 1e-05, tol_df = 1e-05, tol_f = 0, maxit = 100,
@@ -22,7 +22,7 @@ which are [nnz]-vector, [nnz x N]-matrix, [nnz]-vector, scalar,
 X = list(u, d, v), v is in block TT format
 }
 \description{
-BTTSoftImpute implements block tensor train decomposition for
+bttdSoftImpute implements block tensor train decomposition for
 missing data estimation. It extends the SoftImpute method
 for matrix data imputation to higher-order tensor data.
 }
